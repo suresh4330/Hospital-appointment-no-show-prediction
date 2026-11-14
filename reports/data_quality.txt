@@ -1,0 +1,11 @@
+rows=12000  columns=18  duplicates(appointment_id)=0
+
+no-show rate = 18.57%  (class imbalance)
+
+missing values:
+distance_km        262
+booking_channel    223
+
+impossible ages (>110): 36 | negative lead time: 0
+
+date range: 2024-01-01 -> 2025-06-23

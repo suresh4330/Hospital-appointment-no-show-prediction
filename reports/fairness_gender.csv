@@ -1,0 +1,3 @@
+gender,n,no_show_rate,flag_rate,precision,recall
+F,904,0.173,0.475,0.291,0.801
+M,896,0.204,0.515,0.325,0.82
