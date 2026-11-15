@@ -1,5 +1,7 @@
 # Hospital Appointment No-Show Prediction
 
+Demo video: https://www.loom.com/share/1205d1910e304da3bf48f5adf1a537f6
+
 Predicts the probability that an appointment will be missed, so staff can plan human-reviewed reminders
 and scheduling buffers. It never predicts diagnosis, urgency or clinical outcomes.
 
@@ -102,3 +104,8 @@ cost (FN=10, FP=2) -> one final evaluation on the untouched test set. See `docs/
 Synthetic data (results show the pipeline works, not real-world accuracy); simple costs are assumptions;
 recall is lower for the 60+ group (see `reports/fairness_age_group.csv`); new patients have no history;
 needs monitoring/re-training for drift. Human review is mandatory.
+
+## AI Assistance Statement
+
+AI tools (ChatGPT, Claude and the Antigravity coding agent) helped me plan the project, generate the code and draft the report text. I ran and tested everything on my own computer, chose the experiments, checked every number against the output files, and I can explain the whole project.
+
