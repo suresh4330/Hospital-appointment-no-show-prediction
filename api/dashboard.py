@@ -1,4 +1,12 @@
 """Optional staff dashboard.  Run:  streamlit run api/dashboard.py"""
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path so 'src' can be resolved
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import pandas as pd
 import streamlit as st
 from src.predict import predict_one

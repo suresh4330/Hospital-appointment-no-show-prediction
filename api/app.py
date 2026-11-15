@@ -1,5 +1,13 @@
 """FastAPI inference service.  Run:  uvicorn api.app:app --reload
 Docs UI: http://127.0.0.1:8000/docs"""
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path so 'src' can be resolved
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from typing import List, Literal, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
