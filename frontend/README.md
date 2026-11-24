@@ -1,5 +1,8 @@
 # CareAttend AI — Hospital Appointment No-Show Prediction Frontend
 
+* **Live Web App:** https://hospital-appointment-no-show-predic-nine.vercel.app
+* **Live API Backend:** https://hospital-appointment-no-show-prediction-v3hj.onrender.com
+
 A modern, responsive, accessible React 18 web interface for clinical decision-support triage, built with **Vite**, **Tailwind CSS**, and **Lucide React**.
 
 ---

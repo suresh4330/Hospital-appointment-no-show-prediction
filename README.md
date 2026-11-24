@@ -1,6 +1,8 @@
 # Hospital Appointment No-Show Prediction
 
 Demo video: https://www.loom.com/share/1205d1910e304da3bf48f5adf1a537f6
+Live Web App (Vercel): https://hospital-appointment-no-show-predic-nine.vercel.app
+Live API & Docs (Render): https://hospital-appointment-no-show-prediction-v3hj.onrender.com/docs
 
 Predicts the probability that an appointment will be missed, so staff can plan human-reviewed reminders
 and scheduling buffers. It never predicts diagnosis, urgency or clinical outcomes.
