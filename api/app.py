@@ -10,12 +10,22 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from typing import List, Literal, Optional
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from src.config import META_PATH
 from src.predict import load_artifact, predict_one, predict_records
 
 app = FastAPI(title="Hospital Appointment No-Show Predictor",
               description="Decision-support only. Predicts probability of a missed appointment. "
                           "Never used for diagnosis/urgency; staff review every flagged case.")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 Weekday = Literal["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
@@ -54,4 +64,13 @@ def predict_batch(items: List[Appointment]):
     res = predict_records([i.model_dump() for i in items], with_explanation=False)
     order = sorted(range(len(res)), key=lambda i: -res[i]["no_show_probability"])
     return {"ranked_by_risk": [{"index": i, **res[i]} for i in order]}
+
+@app.get("/meta")
+def get_metadata():
+    import json
+    if META_PATH.exists():
+        with open(META_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
 

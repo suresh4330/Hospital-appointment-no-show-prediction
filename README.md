@@ -75,10 +75,21 @@ An interactive Jupyter notebook with visual and tabular exploratory analysis is 
 
 ## Run the inference interface
 
-```bash
-uvicorn api.app:app --reload          # API + Swagger UI at http://127.0.0.1:8000/docs
-streamlit run api/dashboard.py        # optional staff dashboard
-```
+1. **FastAPI Backend:**
+   ```bash
+   uvicorn api.app:app --reload          # API + Swagger UI at http://127.0.0.1:8000/docs
+   ```
+
+2. **React Web Frontend (Vite + Tailwind CSS):**
+   ```bash
+   cd frontend
+   npm install && npm run dev           # Clinical UI at http://localhost:5173
+   ```
+
+3. **Streamlit Staff Dashboard (Alternative):**
+   ```bash
+   streamlit run api/dashboard.py        # optional staff dashboard
+   ```
 
 Example:
 ```bash
