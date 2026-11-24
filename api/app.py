@@ -73,4 +73,22 @@ def get_metadata():
             return json.load(f)
     return {}
 
+# Serve pre-built React frontend if available (unified deployment)
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
+dist_dir = PROJECT_ROOT / "frontend" / "dist"
+if dist_dir.exists():
+    assets_dir = dist_dir / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        file_path = dist_dir / full_path
+        if full_path and file_path.exists() and file_path.is_file():
+            return FileResponse(file_path)
+        return FileResponse(dist_dir / "index.html")
+
+
 
